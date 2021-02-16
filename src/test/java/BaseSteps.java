@@ -7,11 +7,9 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
 
 public class BaseSteps {
-    private String BASE_URL = "https://github.com/";
-
     @Step("Открываем главную страницу")
     void openMainPage() {
-        open(BASE_URL);
+        open("");
     }
 
     @Step("Ищем репозиторий {repository}")

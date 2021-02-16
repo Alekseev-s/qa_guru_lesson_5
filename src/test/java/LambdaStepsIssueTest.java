@@ -13,7 +13,6 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
 
 public class LambdaStepsIssueTest extends TestBase {
-    private String baseURL = "https://github.com/";
     private String repository = "Alekseev-s/qa_guru_lesson_5";
     private String issue = "Allure test issue";
 
@@ -30,7 +29,7 @@ public class LambdaStepsIssueTest extends TestBase {
         parameter("Issue", issue);
 
         step("Открываем главную страницу", () -> {
-            open(baseURL);
+            open("");
         });
         step("Ищем репозиторий " + repository, () -> {
             $("input[name='q']").setValue(repository).pressEnter();
