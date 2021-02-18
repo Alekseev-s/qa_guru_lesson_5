@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.parameter;
@@ -21,7 +20,6 @@ public class LambdaStepsIssueTest extends TestBase {
     @Story("Поиск Issue в репозитории.")
     @Tags({@Tag("web"), @Tag("critical")})
     @Severity(SeverityLevel.CRITICAL)
-
     @DisplayName("Поиск Issue по названию в репозитории.")
     @Owner("Alekseev-s")
     void searchGitHubIssue() {
@@ -41,7 +39,7 @@ public class LambdaStepsIssueTest extends TestBase {
             $("span[data-content='Issues']").click();
         });
         step("Проверяем, что Issue " + issue + " существует", () -> {
-            $("div[aria-label='Issues']").$(byText(issue)).shouldBe(visible);
+            $("div[aria-label='Issues']").shouldHave(text(issue));
         });
     }
 }

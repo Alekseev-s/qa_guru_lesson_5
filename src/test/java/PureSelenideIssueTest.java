@@ -1,10 +1,9 @@
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
-import static com.codeborne.selenide.Condition.visible;
 
 public class PureSelenideIssueTest extends TestBase {
     private String baseURL = "https://github.com/";
@@ -17,6 +16,6 @@ public class PureSelenideIssueTest extends TestBase {
         $("input[name='q']").setValue(repository).pressEnter();
         $(".repo-list").$(linkText(repository)).click();
         $("span[data-content='Issues']").click();
-        $("div[aria-label='Issues']").$(byText(issue)).shouldBe(visible);
+        $("div[aria-label='Issues']").shouldHave(text(issue));
     }
 }

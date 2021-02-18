@@ -3,6 +3,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import steps.BaseSteps;
 
 public class MethodStepsIssueTest extends TestBase {
     BaseSteps steps = new BaseSteps();
@@ -15,7 +16,6 @@ public class MethodStepsIssueTest extends TestBase {
     @Story("Поиск Issue в репозитории.")
     @Tags({@Tag("web"), @Tag("critical")})
     @Severity(SeverityLevel.CRITICAL)
-
     @DisplayName("Поиск Issue по названию в репозитории.")
     @Owner("Alekseev-s")
     void searchGitHubIssue() {
